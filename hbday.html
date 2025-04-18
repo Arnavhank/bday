@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4e50;
+      margin-bottom: 10px;
+    }
+
+    .balloons {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #444;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      animation: confetti 3s linear infinite;
+    }
+
+    @keyframes confetti {
+      from {
+        transform: translateY(-10px) rotate(0deg);
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti">
+    <!-- Randomly placed colorful dots -->
+    <script>
+      const colors = ['#f44336', '#e91e63', '#9c27b0', '#03a9f4', '#4caf50', '#ff9800'];
+      for (let i = 0; i < 100; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+        dot.style.left = `${Math.random() * 100}vw`;
+        dot.style.animationDelay = `${Math.random() * 3}s`;
+        document.querySelector('.confetti').appendChild(dot);
+      }
+    </script>
+  </div>
+
+  <div class="card">
+    <div class="balloons">🎉🎈🎂</div>
+    <h1>Happy Birthday!</h1>
+    <p>Wishing you joy, laughter, and a day full of cake and love! 🎁✨</p>
+  </div>
+
+</body>
+</html>
